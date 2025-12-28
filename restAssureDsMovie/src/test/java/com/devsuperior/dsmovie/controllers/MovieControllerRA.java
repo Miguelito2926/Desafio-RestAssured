@@ -1,12 +1,20 @@
 package com.devsuperior.dsmovie.controllers;
 
+import com.devsuperior.dsmovie.tests.BaseRA;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 
-public class MovieControllerRA {
+import static io.restassured.RestAssured.given;
+
+public class MovieControllerRA extends BaseRA {
 	
 	@Test
 	public void findAllShouldReturnOkWhenMovieNoArgumentsGiven() {
+		given()
+				.when()
+				.get("/movies")
+				.then()
+				.statusCode(200);
 	}
 	
 	@Test
